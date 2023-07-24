@@ -2,7 +2,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { FragmentRefs } from "@graphitation/apollo-react-relay-duct-tape/lib";
+import { FragmentRefs } from "@graphitation/apollo-react-relay-duct-tape";
 export type TodoListFooter_todosFragment = {
   readonly uncompletedCount: number;
   readonly " $refType": "TodoListFooter_todosFragment";

@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import {
   useRefetchableFragment,
   shallowCompareFragmentReferences,
-} from "@graphitation/apollo-react-relay-duct-tape/lib";
+} from "@graphitation/apollo-react-relay-duct-tape";
 import { graphql } from "@graphitation/graphql-js-tag";
 
 import useChangeTodoStatusMutation from "./useChangeTodoStatusMutation";

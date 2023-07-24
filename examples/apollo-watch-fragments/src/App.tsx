@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "@graphitation/graphql-js-tag";
-import { useLazyLoadQuery } from "@graphitation/apollo-react-relay-duct-tape/lib";
+import { useLazyLoadQuery } from "@graphitation/apollo-react-relay-duct-tape";
 
 import { TodoTextInput } from "./TodoTextInput";
 import { TodoList } from "./TodoList";

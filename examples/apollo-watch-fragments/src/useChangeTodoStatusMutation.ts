@@ -1,4 +1,4 @@
-import { useMutation } from "@graphitation/apollo-react-relay-duct-tape/lib";
+import { useMutation } from "@graphitation/apollo-react-relay-duct-tape";
 import { graphql } from "@graphitation/graphql-js-tag";
 import { useCallback } from "react";
 import {

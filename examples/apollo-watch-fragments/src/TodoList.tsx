@@ -3,7 +3,7 @@ import {
   useFragment,
   shallowCompareFragmentReferences,
   usePaginationFragment,
-} from "@graphitation/apollo-react-relay-duct-tape/lib";
+} from "@graphitation/apollo-react-relay-duct-tape";
 import { graphql } from "@graphitation/graphql-js-tag";
 
 import { TodoList_queryFragment$key } from "./__generated__/TodoList_queryFragment.graphql";

@@ -5,7 +5,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { connectionFromArray } from "graphql-relay";
 
 import { Resolvers } from "./graphql/resolver-typings";
-import { typePoliciesWithDefaultApolloClientStoreKeys } from "@graphitation/apollo-react-relay-duct-tape/lib";
+import { typePoliciesWithDefaultApolloClientStoreKeys } from "@graphitation/apollo-react-relay-duct-tape";
 const schemaSource: string = require("../data/schema.graphql");
 
 const TODOS_FIXTURE = `

@@ -28,6 +28,22 @@ const config: webpack.Configuration = {
       {
         test: /\.tsx?$/,
         loader: "babel-loader",
+        options: {
+          presets: [
+            [
+              "@babel/preset-env",
+              {
+                "targets": [
+                  "last 2 versions",
+                  "not android > 0",
+                  "not ios > 0"
+                ]
+              }
+            ],
+            "@babel/preset-react",
+            "@babel/preset-typescript"
+          ]
+        },
         exclude: /node_modules/,
       },
       {
