@@ -2,12 +2,12 @@ import React, { useCallback } from "react";
 import {
   useRefetchableFragment,
   shallowCompareFragmentReferences,
-} from "@graphitation/apollo-react-relay-duct-tape";
+} from "@graphitation/apollo-react-relay-duct-tape/lib";
 import { graphql } from "@graphitation/graphql-js-tag";
 
 import useChangeTodoStatusMutation from "./useChangeTodoStatusMutation";
 
-import { Todo_todoFragment$key } from "./__generated__/Todo_todoFragment.graphql";
+import type { Todo_todoFragment$key } from "./__generated__/Todo_todoFragment.graphql";
 
 const Todo: React.FC<{ todo: Todo_todoFragment$key }> = ({ todo: todoRef }) => {
   const [todo, refetch] = useRefetchableFragment(

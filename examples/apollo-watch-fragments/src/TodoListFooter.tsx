@@ -2,7 +2,7 @@ import React from "react";
 import {
   useFragment,
   shallowCompareFragmentReferences,
-} from "@graphitation/apollo-react-relay-duct-tape";
+} from "@graphitation/apollo-react-relay-duct-tape/lib";
 import { graphql } from "@graphitation/graphql-js-tag";
 
 import { TodoListFooter_todosFragment$key } from "./__generated__/TodoListFooter_todosFragment.graphql";

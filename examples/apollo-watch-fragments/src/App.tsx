@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "@graphitation/graphql-js-tag";
-import { useLazyLoadQuery } from "@graphitation/apollo-react-relay-duct-tape";
+import { useLazyLoadQuery } from "@graphitation/apollo-react-relay-duct-tape/lib";
 
 import { TodoTextInput } from "./TodoTextInput";
 import { TodoList } from "./TodoList";
@@ -23,7 +23,7 @@ const App: React.FC = () => {
         ...TodoList_queryFragment
       }
     `,
-    { includeSomeOtherField: false }
+    { includeSomeOtherField: false },
   );
   if (result.error) {
     throw result.error;

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-// import { useMutation } from "@graphitation/apollo-react-relay-duct-tape";
+// import { useMutation } from "@graphitation/apollo-react-relay-duct-tape/lib";
 import { useMutation } from "@apollo/client";
 import { graphql } from "@graphitation/graphql-js-tag";
 

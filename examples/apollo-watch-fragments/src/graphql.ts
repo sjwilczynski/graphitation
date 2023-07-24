@@ -5,7 +5,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { connectionFromArray } from "graphql-relay";
 
 import { Resolvers } from "./graphql/resolver-typings";
-import { typePoliciesWithDefaultApolloClientStoreKeys } from "@graphitation/apollo-react-relay-duct-tape";
+import { typePoliciesWithDefaultApolloClientStoreKeys } from "@graphitation/apollo-react-relay-duct-tape/lib";
 const schemaSource: string = require("../data/schema.graphql");
 
 const TODOS_FIXTURE = `
@@ -103,7 +103,7 @@ const resolvers: Resolvers<Context> = {
     changeTodoStatus: (_source, { input }, context, _info) => {
       const todo = context.db.setTodoStatus(
         parseInt(input.id.split(":")[1], 10),
-        input.isCompleted
+        input.isCompleted,
       );
       return { todo, todos: {} };
     },
@@ -133,7 +133,7 @@ export function createClient() {
         .map((description) => ({
           description,
           isCompleted: Math.random() < 0.5,
-        }))
+        })),
     ),
   };
   return new ApolloClient({

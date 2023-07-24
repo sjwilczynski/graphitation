@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": [
+          "last 2 versions",
+          "not android > 0",
+          "not ios > 0"
+        ]
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ]
+}

@@ -1,4 +1,4 @@
-import { useMutation } from "@graphitation/apollo-react-relay-duct-tape";
+import { useMutation } from "@graphitation/apollo-react-relay-duct-tape/lib";
 import { graphql } from "@graphitation/graphql-js-tag";
 import { useCallback } from "react";
 import {
@@ -58,7 +58,7 @@ export default function useChangeTodoStatusMutation() {
           // optimisticResponse: getOptimisticResponse(mutationData),
         });
       },
-      [commit]
+      [commit],
     ),
   ];
 }
