@@ -4,20 +4,21 @@
 
 import { FragmentRefs } from "@graphitation/apollo-react-relay-duct-tape";
 export type AppQueryVariables = {
-  includeSomeOtherField: boolean;
+    includeSomeOtherField: boolean;
 };
 export type AppQueryResponse = {
-  readonly todoStats: {
-    readonly id: string;
-    readonly totalCount: number;
-    readonly " $fragmentRefs": FragmentRefs<"TodoListFooter_todosFragment">;
-  };
-  readonly " $fragmentRefs": FragmentRefs<"TodoList_queryFragment">;
+    readonly todoStats: {
+        readonly id: string;
+        readonly totalCount: number;
+        readonly " $fragmentRefs": FragmentRefs<"TodoListFooter_todosFragment">;
+    };
+    readonly " $fragmentRefs": FragmentRefs<"TodoList_queryFragment">;
 };
 export type AppQuery = {
-  readonly response: AppQueryResponse;
-  readonly variables: AppQueryVariables;
+    readonly response: AppQueryResponse;
+    readonly variables: AppQueryVariables;
 };
+
 
 /*
 query AppQuery($includeSomeOtherField: Boolean!) {
@@ -74,405 +75,406 @@ query AppQuery($includeSomeOtherField: Boolean!) {
 }
 */
 
-export const documents: import("@graphitation/apollo-react-relay-duct-tape-compiler").CompiledArtefactModule =
-  (function () {
-    var v0 = {
-        kind: "Name",
-        value: "AppQuery",
-      },
-      v1 = {
-        kind: "Variable",
-        name: {
-          kind: "Name",
-          value: "includeSomeOtherField",
-        },
-      },
-      v2 = [
-        {
-          kind: "VariableDefinition",
-          variable: v1 /*: any*/,
-          type: {
-            kind: "NonNullType",
-            type: {
-              kind: "NamedType",
-              name: {
-                kind: "Name",
-                value: "Boolean",
-              },
+export const documents: import("@graphitation/apollo-react-relay-duct-tape-compiler").CompiledArtefactModule = (function(){
+var v0 = {
+  "kind": "Name",
+  "value": "AppQuery"
+},
+v1 = {
+  "kind": "Variable",
+  "name": {
+    "kind": "Name",
+    "value": "includeSomeOtherField"
+  }
+},
+v2 = [
+  {
+    "kind": "VariableDefinition",
+    "variable": (v1/*: any*/),
+    "type": {
+      "kind": "NonNullType",
+      "type": {
+        "kind": "NamedType",
+        "name": {
+          "kind": "Name",
+          "value": "Boolean"
+        }
+      }
+    }
+  }
+],
+v3 = {
+  "kind": "Name",
+  "value": "todoStats"
+},
+v4 = {
+  "kind": "Name",
+  "value": "todos"
+},
+v5 = {
+  "kind": "Name",
+  "value": "first"
+},
+v6 = [
+  {
+    "kind": "Argument",
+    "name": (v5/*: any*/),
+    "value": {
+      "kind": "IntValue",
+      "value": "0"
+    }
+  }
+],
+v7 = {
+  "kind": "Field",
+  "name": {
+    "kind": "Name",
+    "value": "id"
+  }
+},
+v8 = {
+  "kind": "Field",
+  "name": {
+    "kind": "Name",
+    "value": "totalCount"
+  }
+},
+v9 = {
+  "kind": "Name",
+  "value": "TodoListFooter_todosFragment"
+},
+v10 = {
+  "kind": "Name",
+  "value": "TodoList_queryFragment"
+},
+v11 = {
+  "kind": "Field",
+  "name": {
+    "kind": "Name",
+    "value": "isCompleted"
+  }
+},
+v12 = {
+  "kind": "Name",
+  "value": "Todo_todoFragment"
+},
+v13 = {
+  "kind": "Field",
+  "name": {
+    "kind": "Name",
+    "value": "__fragments"
+  },
+  "directives": [
+    {
+      "kind": "Directive",
+      "name": {
+        "kind": "Name",
+        "value": "client"
+      }
+    }
+  ]
+};
+return {
+  "executionQueryDocument": {
+    "kind": "Document",
+    "definitions": [
+      {
+        "kind": "OperationDefinition",
+        "operation": "query",
+        "name": (v0/*: any*/),
+        "variableDefinitions": (v2/*: any*/),
+        "selectionSet": {
+          "kind": "SelectionSet",
+          "selections": [
+            {
+              "kind": "Field",
+              "alias": (v3/*: any*/),
+              "name": (v4/*: any*/),
+              "arguments": (v6/*: any*/),
+              "selectionSet": {
+                "kind": "SelectionSet",
+                "selections": [
+                  (v7/*: any*/),
+                  (v8/*: any*/),
+                  {
+                    "kind": "FragmentSpread",
+                    "name": (v9/*: any*/)
+                  }
+                ]
+              }
             },
-          },
+            {
+              "kind": "FragmentSpread",
+              "name": (v10/*: any*/)
+            }
+          ]
+        }
+      },
+      {
+        "kind": "FragmentDefinition",
+        "name": (v9/*: any*/),
+        "typeCondition": {
+          "kind": "NamedType",
+          "name": {
+            "kind": "Name",
+            "value": "TodosConnection"
+          }
         },
-      ],
-      v3 = {
-        kind: "Name",
-        value: "todoStats",
-      },
-      v4 = {
-        kind: "Name",
-        value: "todos",
-      },
-      v5 = {
-        kind: "Name",
-        value: "first",
-      },
-      v6 = [
-        {
-          kind: "Argument",
-          name: v5 /*: any*/,
-          value: {
-            kind: "IntValue",
-            value: "0",
-          },
-        },
-      ],
-      v7 = {
-        kind: "Field",
-        name: {
-          kind: "Name",
-          value: "id",
-        },
-      },
-      v8 = {
-        kind: "Field",
-        name: {
-          kind: "Name",
-          value: "totalCount",
-        },
-      },
-      v9 = {
-        kind: "Name",
-        value: "TodoListFooter_todosFragment",
-      },
-      v10 = {
-        kind: "Name",
-        value: "TodoList_queryFragment",
-      },
-      v11 = {
-        kind: "Field",
-        name: {
-          kind: "Name",
-          value: "isCompleted",
-        },
-      },
-      v12 = {
-        kind: "Name",
-        value: "Todo_todoFragment",
-      },
-      v13 = {
-        kind: "Field",
-        name: {
-          kind: "Name",
-          value: "__fragments",
-        },
-        directives: [
-          {
-            kind: "Directive",
-            name: {
-              kind: "Name",
-              value: "client",
+        "selectionSet": {
+          "kind": "SelectionSet",
+          "selections": [
+            {
+              "kind": "Field",
+              "name": {
+                "kind": "Name",
+                "value": "uncompletedCount"
+              }
             },
-          },
-        ],
-      };
-    return {
-      executionQueryDocument: {
-        kind: "Document",
-        definitions: [
-          {
-            kind: "OperationDefinition",
-            operation: "query",
-            name: v0 /*: any*/,
-            variableDefinitions: v2 /*: any*/,
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
+            (v7/*: any*/)
+          ]
+        }
+      },
+      {
+        "kind": "FragmentDefinition",
+        "name": (v10/*: any*/),
+        "typeCondition": {
+          "kind": "NamedType",
+          "name": {
+            "kind": "Name",
+            "value": "Query"
+          }
+        },
+        "selectionSet": {
+          "kind": "SelectionSet",
+          "selections": [
+            {
+              "kind": "Field",
+              "name": (v4/*: any*/),
+              "arguments": [
                 {
-                  kind: "Field",
-                  alias: v3 /*: any*/,
-                  name: v4 /*: any*/,
-                  arguments: v6 /*: any*/,
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      v7 /*: any*/,
-                      v8 /*: any*/,
-                      {
-                        kind: "FragmentSpread",
-                        name: v9 /*: any*/,
-                      },
-                    ],
+                  "kind": "Argument",
+                  "name": (v5/*: any*/),
+                  "value": {
+                    "kind": "IntValue",
+                    "value": "5"
+                  }
+                },
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "after"
                   },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: v10 /*: any*/,
-                },
+                  "value": {
+                    "kind": "StringValue",
+                    "value": "",
+                    "block": false
+                  }
+                }
               ],
-            },
-          },
-          {
-            kind: "FragmentDefinition",
-            name: v9 /*: any*/,
-            typeCondition: {
-              kind: "NamedType",
-              name: {
-                kind: "Name",
-                value: "TodosConnection",
-              },
-            },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
+              "directives": [
                 {
-                  kind: "Field",
-                  name: {
-                    kind: "Name",
-                    value: "uncompletedCount",
+                  "kind": "Directive",
+                  "name": {
+                    "kind": "Name",
+                    "value": "connection"
                   },
-                },
-                v7 /*: any*/,
+                  "arguments": [
+                    {
+                      "kind": "Argument",
+                      "name": {
+                        "kind": "Name",
+                        "value": "key"
+                      },
+                      "value": {
+                        "kind": "StringValue",
+                        "value": "TodosList_todos",
+                        "block": false
+                      }
+                    }
+                  ]
+                }
               ],
-            },
-          },
-          {
-            kind: "FragmentDefinition",
-            name: v10 /*: any*/,
-            typeCondition: {
-              kind: "NamedType",
-              name: {
-                kind: "Name",
-                value: "Query",
-              },
-            },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "Field",
-                  name: v4 /*: any*/,
-                  arguments: [
-                    {
-                      kind: "Argument",
-                      name: v5 /*: any*/,
-                      value: {
-                        kind: "IntValue",
-                        value: "5",
-                      },
+              "selectionSet": {
+                "kind": "SelectionSet",
+                "selections": [
+                  {
+                    "kind": "Field",
+                    "name": {
+                      "kind": "Name",
+                      "value": "edges"
                     },
-                    {
-                      kind: "Argument",
-                      name: {
-                        kind: "Name",
-                        value: "after",
-                      },
-                      value: {
-                        kind: "StringValue",
-                        value: "",
-                        block: false,
-                      },
-                    },
-                  ],
-                  directives: [
-                    {
-                      kind: "Directive",
-                      name: {
-                        kind: "Name",
-                        value: "connection",
-                      },
-                      arguments: [
+                    "selectionSet": {
+                      "kind": "SelectionSet",
+                      "selections": [
                         {
-                          kind: "Argument",
-                          name: {
-                            kind: "Name",
-                            value: "key",
+                          "kind": "Field",
+                          "name": {
+                            "kind": "Name",
+                            "value": "node"
                           },
-                          value: {
-                            kind: "StringValue",
-                            value: "TodosList_todos",
-                            block: false,
-                          },
-                        },
-                      ],
-                    },
-                  ],
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: {
-                          kind: "Name",
-                          value: "edges",
-                        },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "Field",
-                              name: {
-                                kind: "Name",
-                                value: "node",
+                          "selectionSet": {
+                            "kind": "SelectionSet",
+                            "selections": [
+                              (v7/*: any*/),
+                              (v11/*: any*/),
+                              {
+                                "kind": "FragmentSpread",
+                                "name": (v12/*: any*/)
                               },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  v7 /*: any*/,
-                                  v11 /*: any*/,
-                                  {
-                                    kind: "FragmentSpread",
-                                    name: v12 /*: any*/,
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: {
-                                      kind: "Name",
-                                      value: "__typename",
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                            {
-                              kind: "Field",
-                              name: {
-                                kind: "Name",
-                                value: "cursor",
-                              },
-                            },
-                          ],
+                              {
+                                "kind": "Field",
+                                "name": {
+                                  "kind": "Name",
+                                  "value": "__typename"
+                                }
+                              }
+                            ]
+                          }
                         },
-                      },
-                      {
-                        kind: "Field",
-                        name: {
-                          kind: "Name",
-                          value: "pageInfo",
-                        },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "Field",
-                              name: {
-                                kind: "Name",
-                                value: "endCursor",
-                              },
-                            },
-                            {
-                              kind: "Field",
-                              name: {
-                                kind: "Name",
-                                value: "hasNextPage",
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      v7 /*: any*/,
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {
-            kind: "FragmentDefinition",
-            name: v12 /*: any*/,
-            typeCondition: {
-              kind: "NamedType",
-              name: {
-                kind: "Name",
-                value: "Todo",
-              },
-            },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                v7 /*: any*/,
-                {
-                  kind: "Field",
-                  name: {
-                    kind: "Name",
-                    value: "description",
-                  },
-                },
-                v11 /*: any*/,
-                {
-                  kind: "Field",
-                  name: {
-                    kind: "Name",
-                    value: "someOtherField",
-                  },
-                  directives: [
-                    {
-                      kind: "Directive",
-                      name: {
-                        kind: "Name",
-                        value: "include",
-                      },
-                      arguments: [
                         {
-                          kind: "Argument",
-                          name: {
-                            kind: "Name",
-                            value: "if",
-                          },
-                          value: v1 /*: any*/,
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-          },
-        ],
-      },
-      watchQueryDocument: {
-        kind: "Document",
-        definitions: [
-          {
-            kind: "OperationDefinition",
-            operation: "query",
-            name: v0 /*: any*/,
-            variableDefinitions: v2 /*: any*/,
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "Field",
-                  alias: v3 /*: any*/,
-                  name: v4 /*: any*/,
-                  arguments: v6 /*: any*/,
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      v7 /*: any*/,
-                      v8 /*: any*/,
-                      {
-                        kind: "InlineFragment",
-                        typeCondition: {
-                          kind: "NamedType",
-                          name: {
-                            kind: "Name",
-                            value: "Node",
-                          },
-                        },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [v13 /*: any*/],
-                        },
-                      },
-                    ],
+                          "kind": "Field",
+                          "name": {
+                            "kind": "Name",
+                            "value": "cursor"
+                          }
+                        }
+                      ]
+                    }
                   },
-                },
-                v13 /*: any*/,
-              ],
-            },
-          },
-        ],
+                  {
+                    "kind": "Field",
+                    "name": {
+                      "kind": "Name",
+                      "value": "pageInfo"
+                    },
+                    "selectionSet": {
+                      "kind": "SelectionSet",
+                      "selections": [
+                        {
+                          "kind": "Field",
+                          "name": {
+                            "kind": "Name",
+                            "value": "endCursor"
+                          }
+                        },
+                        {
+                          "kind": "Field",
+                          "name": {
+                            "kind": "Name",
+                            "value": "hasNextPage"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  (v7/*: any*/)
+                ]
+              }
+            }
+          ]
+        }
       },
-    };
-  })();
+      {
+        "kind": "FragmentDefinition",
+        "name": (v12/*: any*/),
+        "typeCondition": {
+          "kind": "NamedType",
+          "name": {
+            "kind": "Name",
+            "value": "Todo"
+          }
+        },
+        "selectionSet": {
+          "kind": "SelectionSet",
+          "selections": [
+            (v7/*: any*/),
+            {
+              "kind": "Field",
+              "name": {
+                "kind": "Name",
+                "value": "description"
+              }
+            },
+            (v11/*: any*/),
+            {
+              "kind": "Field",
+              "name": {
+                "kind": "Name",
+                "value": "someOtherField"
+              },
+              "directives": [
+                {
+                  "kind": "Directive",
+                  "name": {
+                    "kind": "Name",
+                    "value": "include"
+                  },
+                  "arguments": [
+                    {
+                      "kind": "Argument",
+                      "name": {
+                        "kind": "Name",
+                        "value": "if"
+                      },
+                      "value": (v1/*: any*/)
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "watchQueryDocument": {
+    "kind": "Document",
+    "definitions": [
+      {
+        "kind": "OperationDefinition",
+        "operation": "query",
+        "name": (v0/*: any*/),
+        "variableDefinitions": (v2/*: any*/),
+        "selectionSet": {
+          "kind": "SelectionSet",
+          "selections": [
+            {
+              "kind": "Field",
+              "alias": (v3/*: any*/),
+              "name": (v4/*: any*/),
+              "arguments": (v6/*: any*/),
+              "selectionSet": {
+                "kind": "SelectionSet",
+                "selections": [
+                  (v7/*: any*/),
+                  (v8/*: any*/),
+                  {
+                    "kind": "InlineFragment",
+                    "typeCondition": {
+                      "kind": "NamedType",
+                      "name": {
+                        "kind": "Name",
+                        "value": "Node"
+                      }
+                    },
+                    "selectionSet": {
+                      "kind": "SelectionSet",
+                      "selections": [
+                        (v13/*: any*/)
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            (v13/*: any*/)
+          ]
+        }
+      }
+    ]
+  }
+};
+})();
 
 export default documents;
