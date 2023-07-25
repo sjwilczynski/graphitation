@@ -10,6 +10,14 @@ import { TodoList_queryFragment$key } from "./__generated__/TodoList_queryFragme
 import { Todo } from "./Todo";
 import { LoadingSpinner } from "./LoadingSpinner";
 
+const TestFragment = graphql`
+  fragment TodoList_viewDataFragment on ViewData {
+    todoView {
+      totalCountString
+    }
+  }
+`;
+
 const TodoList: React.FC<{ query: TodoList_queryFragment$key }> = ({
   query: queryRef,
 }) => {

@@ -115,11 +115,14 @@ function printWatchNodeQueryReExport(definition: Fragment) {
     definition.directives.find(
       (d) => d.name === "refetchable" && d.loc.kind === "Generated",
     );
-  invariant(refetchable, "Expected to find a @refetchable directive");
+  invariant(
+    refetchable,
+    `Expected to find a @refetchable directive on ${definition.name}`,
+  );
   const queryNameArg = refetchable.args[0];
   invariant(
     queryNameArg.name === "queryName" && queryNameArg.value.kind === "Literal",
-    "Expected a @refetchable(queryName:) argument",
+    `Expected a @refetchable(queryName:) argument on ${definition.name}`,
   );
 
   return `import { documents } from "./${queryNameArg.value.value}.graphql";\nexport default documents;`;

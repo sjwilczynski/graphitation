@@ -5,6 +5,16 @@ interface Node {
 type Query {
   todos(first: Int!, after: String): TodosConnection!
   node(id: ID!): Node
+  viewData: ViewData!
+}
+
+type ViewData {
+  todoView: TodoViewData!
+}
+
+type TodoViewData {
+  totalCountString: String!
+  uncompletedCountString: String!
 }
 
 type PageInfo {
