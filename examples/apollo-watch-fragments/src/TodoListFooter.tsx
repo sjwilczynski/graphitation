@@ -7,6 +7,14 @@ import { graphql } from "@graphitation/graphql-js-tag";
 
 import { TodoListFooter_todosFragment$key } from "./__generated__/TodoListFooter_todosFragment.graphql";
 
+const TestFragment = graphql`
+  fragment TodoListFooter_viewDataFragment on ViewData {
+    todoView {
+      totalCountString
+    }
+  }
+`;
+
 const TodoListFooter: React.FC<{
   todos: TodoListFooter_todosFragment$key;
 }> = ({ todos: todosRef }) => {
