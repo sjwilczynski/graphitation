@@ -13,6 +13,7 @@ export type TodoList_queryFragment = {
             };
         }>;
     };
+    readonly id: string;
     readonly " $refType": "TodoList_queryFragment";
 };
 export type TodoList_queryFragment$data = TodoList_queryFragment;

@@ -10,13 +10,14 @@ import { TodoList_queryFragment$key } from "./__generated__/TodoList_queryFragme
 import { Todo } from "./Todo";
 import { LoadingSpinner } from "./LoadingSpinner";
 
-const TestFragment = graphql`
-  fragment TodoList_viewDataFragment on ViewData {
-    todoView {
-      totalCountString
-    }
-  }
-`;
+// [issue 1]: uncomment this fragment to see compiler failure (repro from 1js)
+// const TestFragment = graphql`
+//   fragment TodoList_viewDataFragment on ViewData {
+//     todoView {
+//       totalCountString
+//     }
+//   }
+// `;
 
 const TodoList: React.FC<{ query: TodoList_queryFragment$key }> = ({
   query: queryRef,
@@ -28,7 +29,7 @@ const TodoList: React.FC<{ query: TodoList_queryFragment$key }> = ({
     isLoadingNext,
   } = usePaginationFragment(
     graphql`
-      fragment TodoList_queryFragment on Query
+      fragment TodoList_queryFragment on NodeWithTodos
       @refetchable(queryName: "TodoListPaginationQuery")
       @argumentDefinitions(
         count: { type: "Int!", defaultValue: 5 }

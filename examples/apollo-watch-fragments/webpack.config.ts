@@ -31,7 +31,7 @@ const config: webpack.Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.tsx$/,
+        test: /\.tsx$/, // [issue 3]: change it to process mutations as well - failure in running app when processing mutation file (repro from 1js)
         loader: "@graphitation/embedded-document-artefact-loader/webpack",
         exclude: /node_modules/,
       },

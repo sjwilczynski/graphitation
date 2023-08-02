@@ -2,8 +2,18 @@ interface Node {
   id: ID!
 }
 
-type Query {
+interface NodeWithTodos implements Node {
+  id: ID!
   todos(first: Int!, after: String): TodosConnection!
+}
+
+type MeWithTodos implements NodeWithTodos & Node {
+  id: ID!
+  todos(first: Int!, after: String): TodosConnection!
+}
+
+type Query {
+  meWithTodos: MeWithTodos!
   node(id: ID!): Node
   viewData: ViewData!
 }

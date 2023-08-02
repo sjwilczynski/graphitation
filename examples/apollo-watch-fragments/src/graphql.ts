@@ -78,16 +78,20 @@ const resolvers: Resolvers<Context> = {
           const todo = context.db.getTodo(parseInt(typeId, 10));
           return todo ? { __typename: "Todo", ...todo } : null;
         }
+        case "MeWithTodos": {
+          return {
+            __typename: "MeWithTodos",
+            id: "MeWithTodos:1",
+          };
+        }
       }
       return null;
     },
-    todos: async (_source, args, context, info) => {
-      if (info.operation.name?.value === "TodoListPaginationQuery") {
-        // Synthetically make pagination take some time, so we can show a
-        // loading indicator.
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-      }
-      return connectionFromArray(context.db.getTodos(), args);
+    meWithTodos: (_source, _args, context) => {
+      return {
+        __typename: "MeWithTodos",
+        id: "MeWithTodos:1",
+      };
     },
   },
   Mutation: {
@@ -103,9 +107,19 @@ const resolvers: Resolvers<Context> = {
     changeTodoStatus: (_source, { input }, context, _info) => {
       const todo = context.db.setTodoStatus(
         parseInt(input.id.split(":")[1], 10),
-        input.isCompleted
+        input.isCompleted,
       );
       return { todo, todos: {} };
+    },
+  },
+  MeWithTodos: {
+    todos: async (_source, args, context, info) => {
+      if (info.operation.name?.value === "TodoListPaginationQuery") {
+        // Synthetically make pagination take some time, so we can show a
+        // loading indicator.
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+      return connectionFromArray(context.db.getTodos(), args);
     },
   },
   Todo: {
@@ -133,7 +147,7 @@ export function createClient() {
         .map((description) => ({
           description,
           isCompleted: Math.random() < 0.5,
-        }))
+        })),
     ),
   };
   return new ApolloClient({

@@ -14,8 +14,11 @@ query TodoListFooter_todosWatchNodeQuery($id: ID!) {
   }
 }
 
-fragment TodoListFooter_todosFragment on TodosConnection {
-  uncompletedCount
+fragment TodoListFooter_todosFragment on MeWithTodos {
+  todoStats: todos(first: 0) {
+    uncompletedCount
+    id
+  }
   id
 }
 */
@@ -139,7 +142,7 @@ return {
           "kind": "NamedType",
           "name": {
             "kind": "Name",
-            "value": "TodosConnection"
+            "value": "MeWithTodos"
           }
         },
         "selectionSet": {
@@ -147,9 +150,39 @@ return {
           "selections": [
             {
               "kind": "Field",
+              "alias": {
+                "kind": "Name",
+                "value": "todoStats"
+              },
               "name": {
                 "kind": "Name",
-                "value": "uncompletedCount"
+                "value": "todos"
+              },
+              "arguments": [
+                {
+                  "kind": "Argument",
+                  "name": {
+                    "kind": "Name",
+                    "value": "first"
+                  },
+                  "value": {
+                    "kind": "IntValue",
+                    "value": "0"
+                  }
+                }
+              ],
+              "selectionSet": {
+                "kind": "SelectionSet",
+                "selections": [
+                  {
+                    "kind": "Field",
+                    "name": {
+                      "kind": "Name",
+                      "value": "uncompletedCount"
+                    }
+                  },
+                  (v3/*: any*/)
+                ]
               }
             },
             (v3/*: any*/)
@@ -162,7 +195,7 @@ return {
     "rootSelection": "node",
     "mainFragment": {
       "name": "TodoListFooter_todosFragment",
-      "typeCondition": "TodosConnection"
+      "typeCondition": "MeWithTodos"
     }
   }
 };

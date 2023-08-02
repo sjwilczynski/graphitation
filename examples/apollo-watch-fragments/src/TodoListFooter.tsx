@@ -7,21 +7,24 @@ import { graphql } from "@graphitation/graphql-js-tag";
 
 import { TodoListFooter_todosFragment$key } from "./__generated__/TodoListFooter_todosFragment.graphql";
 
-const TestFragment = graphql`
-  fragment TodoListFooter_viewDataFragment on ViewData {
-    todoView {
-      totalCountString
-    }
-  }
-`;
+// [issue 1]: uncomment this fragment to see compiler failure (repro from 1js)
+// const TestFragment = graphql`
+//   fragment TodoListFooter_viewDataFragment on ViewData {
+//     todoView {
+//       totalCountString
+//     }
+//   }
+// `;
 
 const TodoListFooter: React.FC<{
   todos: TodoListFooter_todosFragment$key;
 }> = ({ todos: todosRef }) => {
   const todos = useFragment(
     graphql`
-      fragment TodoListFooter_todosFragment on TodosConnection {
-        uncompletedCount
+      fragment TodoListFooter_todosFragment on MeWithTodos { # [issue 2]: change to NodeWithTodos to see compiler failure (repro from 1js)
+        todoStats: todos(first: 0) {
+          uncompletedCount
+        }
       }
     `,
     todosRef,
@@ -31,10 +34,10 @@ const TodoListFooter: React.FC<{
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>{todos.uncompletedCount}</strong> item
-        {todos.uncompletedCount === 1 ? "" : "s"} left
+        <strong>{todos.todoStats.uncompletedCount}</strong> item
+        {todos.todoStats.uncompletedCount === 1 ? "" : "s"} left
       </span>
-      {todos.uncompletedCount === 0 && (
+      {todos.todoStats.uncompletedCount === 0 && (
         <button className="clear-completed">Clear completed</button>
       )}
     </footer>

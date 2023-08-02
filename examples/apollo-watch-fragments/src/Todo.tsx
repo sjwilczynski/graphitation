@@ -10,6 +10,20 @@ import useChangeTodoStatusMutation from "./useChangeTodoStatusMutation";
 import { Todo_todoFragment$key } from "./__generated__/Todo_todoFragment.graphql";
 
 const Todo: React.FC<{ todo: Todo_todoFragment$key }> = ({ todo: todoRef }) => {
+  /*
+  [issue 4]: this code fails at runtime with the following error:
+  Uncaught TypeError: Cannot read properties of undefined (reading 'node')
+    at useCompiledFragment (useCompiledFragment.ts:70:16)
+    at useCompiledRefetchableFragment (useCompiledRefetchableFragment.ts:70:35)
+    at useCompiledPaginationFragment (useCompiledPaginationFragment.ts:244:57)
+    at usePaginationFragment (hooks.ts:202:39)
+    at TodoList (TodoList.tsx:23:28)
+    at WDYRFunctionalComponent (whyDidYouRender.js:1180:1)
+    at renderWithHooks (react-dom.development.js:14985:1)
+    at mountIndeterminateComponent (react-dom.development.js:17811:1)
+    at beginWork (react-dom.development.js:19049:1)
+    at HTMLUnknownElement.callCallback (react-dom.development.js:3945:1) 
+  */
   const [todo, refetch] = useRefetchableFragment(
     graphql`
       fragment Todo_todoFragment on Todo
